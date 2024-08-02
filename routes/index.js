@@ -1,11 +1,9 @@
 import express from 'express';
-
 const router = express.Router();
 
-let posts = []; // This can be moved to a more appropriate place later
-
 router.get('/', (req, res) => {
-  res.render('index', { posts });
+    res.render('index', { posts: req.posts });
 });
 
 export default router;
+

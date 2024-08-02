@@ -1,4 +1,4 @@
-import express from 'express';
+import express from "express";
 import { newPostForm, createPost, editPostForm, updatePost, deletePost } from '../controllers/postController.js';
 
 const router = express.Router();

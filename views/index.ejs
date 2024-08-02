@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Blog</title>
+    <title>Alex's Blog</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header>Alex's Blog</h1>
+    <header>
+        <h1>Welcome to Alex's Blog</h1>
     </header>
     <main>
-        <h2>Blog Posts</h2>
+        <a href="/posts/new">Create a New Post</a>
+        <h2>Posts</h2>
         <ul>
-            <% if (posts && posts.length > 0) { %>
-                <% posts.forEach(function(post) { %>
+            <% if (posts.length > 0) { %>
+                <% posts.forEach(post => { %>
                     <li>
-                        <h3><%= post.title %></h3>
-                        <p><%= post.content %></p>
+                        <article>
+                            <h3><%= post.title %></h3>
+                            <p><strong>Author:</strong> <%= post.author %></p>
+                            <p><strong>Date:</strong> <%= post.date %></p>
+                            <p><strong>Summary:</strong> <%= post.summary %></p>
+                            <p><strong>Tags:</strong> <%= post.tags.join(', ') %></p>
+                            <p><strong>Content:</strong> <%= post.content %></p>
+                        </article>
                     </li>
-                <% }); %>
+                <% }) %>
             <% } else { %>
                 <li>No posts available</li>
             <% } %>
         </ul>
-        <a href="/posts/new">Create a new post</a>
     </main>
     <footer>
         <p>&copy; 2024 Web Blog</p>
